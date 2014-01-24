@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText Webpages generator 4.1.0">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Crypto TD1</title>
+</head>
+<body>
+<table class="page-areas">
+<tr class="area-toppanel"><td><center><a href="http://tloz.github.io">Main Page</a></center></td></tr>
+<tr class="area-content"><td>
+<div class="content">
+<h1>Introduction à la Cryptologie (LI336)</h1>
+<h2>TD1 - 24 janvier 2014</h2>
+<p><em>Mail de l'enseignant</em> : <a href="mailto:Valerie.Menisser-Morain@lip6.fr">Valérie Menissier-Morain</a>
+<br />
+<em>Rédigé par</em> : <a href="mailto:ScrimeT@hotmail.fr">Emeric Frémion</a><br />
+<a href="">Poly du cours</a></p>
+<h3>Exercice 1 - Questions introductives</h3>
+<h4>Q1 : Rappeler la définition de la cryptologie</h4>
+<p>La Cryptologie est l'étude des systèmes cryptogaphiques. C'est l'union de la cryptographie et de la cryptanalyse.</p>
+<h4>Q2 : Quelle est la différence entre cryptographie et cryptanalyse?</h4>
+<p>La cryptographie l'étude du chiffrement, la cryptanalyse celle du déchiffrement</p>
+<h4>Q3 : Quelle est la différence entre la cryptographie et la cryptanalyse?</h4>
+<p>La cryptographique cache le sens, la stéganographie cache le message</p>
+<h4>Q4 : Quel mathématicien célèbre s'est illustré par la cryptanalyse de la machine à chiffre utilisée par l'armée allemande pendant la seconde guerre mondiale?</h4>
+<p><a href="http://fr.wikipedia.org/wiki/Alan_Turing">Alan Turing</a><br />
+Lire aussi <em>Histoire des codes secrets: de l'Égypte des pharaons à l'ordinateur quantique</em>, Simon SINGH</p>
+<h4>Q5 : Donner le nom de la machine de la question 5</h4>
+<p>Enigma</p>
+<h4>Q6 : L'utilisation des moyens cryptographique est elle libre en France? Qu'en est il du transfert de moyens de cryptanalyse?</h4>
+<p>La <em>Loi pour la confiance dans l'économie numérique</em> précise :<br />
+France &lt;-&gt; France --- Libre<br />
+France &lt;-&gt; UE (authentification) --- Libre<br />
+France &lt;--- UE (confidentialité) ----- Déclaration préalable<br />
+France ---&gt; UE (confidentialité) ----- Autorisation préalable<br /></p>
+<h3>Exercice 2 - Rappels d'arithmétique de base</h3>
+<h4>Q1 : Que représente l'expression 31 mod 26? Quelle est sa valeur?</h4>
+<p>31 mod 26 est le reste de la division euclidienne de 31 par 26, c'est à dire 5</p>
+<h4>Q2 : Que vaut -3 mod 26</h4>
+<p>-3 mod 26 = 23<br/>
+Car -3 + 26 = 23 et 23 mod 26 = 23</p>
+<h4>Q3 : Rappeler la définition d'un nombre premier. DU PGCD de deux entiers</h4>
+<p>Un nombre premier est un nombre qui a pour seuls diviseurs 1 et lui même. Le PGCD de 2 entiers est le plus grand diviseurs commun à deux entiers</p>
+<h3>Exercice 3 - Structures  algébriques</h3>
+<h4>Q1 : Rappeler la définition d'un groupe.</h4>
+<p>Un groupe (E, *) est muni:</p>
+<ol>
+<li>d'une loi de composition interne sur E</li>
+<li>associative: V a, b, c € Z, (a*b)*c = a*(b*c)</li>
+<li>admet un élément neutre: a*e =  e*a = a</li>
+<li>tout élément est inversible pour * : x*y = e = y*x
+<br /></li>
+</ol>
+<h4>Q2 : Vérifier que l'ensemble des classes moduli un entier n muni de l'addition forme bien un groupe (On le note Z/nZ)</h4>
+<p>(Z/nZ, +) est un groupe</p>
+<p><br /></p>
+<h4>Q3 : Rappeler la définition d'un groupe cyclique. Montrer que le groupe additif Z/nZ est cyclique</h4>
+<p><br /></p>
+<h4>Q4 : Rappeler la définition d'un morphisme de groupe. En faire de même pour un isomorphisme</h4>
+<p><br /></p>
+<h4>Q5 : Montrer que tout groupe fini cyclique cardinal n est ismorphe à Z/nZ. Ce dernier est donc le groupe cyclique de cardinal n canonique.</h4>
+<p><br /></p>
+<h4>Q6 : Rappeler la définition d'un groupe commutatif (abélien). Donner un groupe de permutation qui n'est pas commutatif</h4>
+<p><br /></p>
+<h3>Exercice 4 -  Chiffrement mono-alphabétique</h3>
+<h4>Q1 : Rappeler le principe de base de la cryptographie mono-alphabétique. Avec quelle opération mathématique cela peut il se définir? Quelle est la clé secrète?</h4>
+<p>Texte sur l'alphabet fini A. c€A -&gt; f(c)€A' et |A|=|A'|<br />
+Classiquement, il s'agit d'une substitution de l'alphabet dans lui meme ou d'une bijection entre deux alphabets différents (mais de même cardinal). La clé secrète est alors la chaine de caractères en laquelle l'alphabet initial est transformé par chiffrement</p>
+<h4>Q2 : Quelle est la particularité du chiffrement de César dans l'ensemble des chiffrements mono-alphabétiques? En déduire que la clé secrète peut être définie par le symbole dans l'alphabet d'arrivé correspondant à une lettre fixée dans l'alphabet de départ. Rappeler avec quelle opération mathématique le chiffrement de César peut se définir.</h4>
+<p>César : Chiffrement par décalage<br />
+<strong>chiffement</strong>: opération modulo d où d est la longeur du décalage:<br />x -&gt; (x+d) mod |A|<br />
+Si A = {x0, x1, ..., x(n-1)}, il suffit d'indiquer xd comme clé de déchiffrement: x -&gt;(x-d)mod |A|</p>
+<h4>Q3 : Chiffrer et déchiffre des messages pour César</h4>
+<p>chiffrer <strong>ATTAQUESURLUTECEDEMAIN</strong> avec la clé R<br />
+RKKRHLVJLICLKVTVUVDRZE</p>
+<p>déchiffrer <strong>IVIRYNPELCGBYBTVR</strong>  avec la clé N<br />
+VIVELACRYPTOLOGIE</p>
+<h4>Q4 : En supposant que les alphabets de sortie soient celui des 26 lettres majuscules, estimer la difficulté de retrouver un texte clair à partir d'un texte chiffré sans connaître la clé pour un chiffrement par décalage ou sur un mono-alphabétique</h4>
+<p>Une chance sur 26</p>
+<h4>Q5 : Sur quel principe mathématique se base la cryptanalyse d'un chiffrement mono-alphabétique?</h4>
+<p>L'analyse de fréquences</p>
+<h3>Exercice 5 - Chiffrement poly-alphabétique</h3>
+<h4>Q1 : Le chiffrement de Vigenère peut être vu comme une généralisation du chiffrement de César: au lieu de décaler chacune des lettres du message clair selon une lettre (la clé secrète), on va décaler chacune des lettres sellon un mot. Donner un schéma expliquant le chiffrement de Vigenère.</h4>
+<p>C=(c1, c2, ..., cl) la clé secrète.<br />
+On dcoupe le texte en tranches de l caractères et pour le caractère t(p) en position  p: <br />t(p) -&gt; (t(p) + c(p) mod l) mod |A|</p>
+<h4>Q2 : Pratique</h4>
+<p>déchiffrer <strong>XSMSRXIRDVLEIUVNUMEJRSANKU</strong> avec la clé <strong>CESAR</strong>:<br />
+01 23456 789012 3 4 567 890 12 3 45<br />
+ABCDEFGHI JKLMNOPQRSTUVWXYZ<br />
+CESAR = 2 4 18 0 17<br />
+<strong>XSMSRXIRDVLEIUVNUMEJRSANKU</strong> devient <em>VOUSAVEZDEJAQUELQUESPOINTS</em></p>
+<p>chiffrer <strong>LATTAQUEESTPREVUEPOURDEMAIN</strong> avec la clé <strong>CYPHER</strong><br />|CYPHER|CYPHER|CYPHER|CYPHER |CYPHER<br />
+|LATTAQ|UEESTP |REVUEP|OURDEM|AIN<br />
+-&gt;NIIAEHWMTZXGTMBIGQCKIDCQC</p>
+<h4>Q3 : Expliquer quel principe mathématique permet de modéliser le chiffrement de Vigenère</h4>
+<p>Substitution poly-alphabétique</p>
+<h3>Exercice 6 - Carré de Polybe et chiffrement ADFGVX</h3>
+<p><table>
+<tr><td></td><td><strong>A</strong></td><td><strong>D</strong></td><td><strong>F</strong></td><td><strong>G</strong></td><td><strong>V</strong></td><td><strong>X</strong></td></tr>
+<tr><td><strong>A</strong></td><td>C</td><td>1</td><td>O</td><td>F</td><td>W</td><td>J</td></tr>
+<tr><td><strong>D</strong></td><td>Y</td><td>M</td><td>T</td><td>5</td><td>B</td><td>4</td></tr>
+<tr><td><strong>F</strong></td><td>I</td><td>7</td><td>A</td><td>2</td><td>8</td><td>S</td></tr>
+<tr><td><strong>G</strong></td><td>P</td><td>3</td><td>0</td><td>Q</td><td>H</td><td>X</td></tr>
+<tr><td><strong>V</strong></td><td>K</td><td>E</td><td>U</td><td>L</td><td>6</td><td>D</td></tr>
+<tr><td><strong>X</strong></td><td>V</td><td>R</td><td>G</td><td>Z</td><td>N</td><td>9</td></tr>
+</table></p>
+<h4>Q1 : Quel est le taux d'expansion de ce chiffrement?</h4>
+<p>Chaque caractère est représenté par deux caractères et pour terminer les lognes on rajoute des caractères<br />
+|message| = l --- kn tel que (k-1)n&lt;2l &lt;= kn<br />
+|transpo| = n càd 2n[l/n](sup)</p>
+<h4>Q2 : Chiffrer le texte</h4>
+<p>FF DF DF FF GG VF VD FX VF XD GA FF XD FA FX VG VD AD FG AX FF XV XA FA VD XD</p>
+</div>
+</td></tr>
+<tr class="area-footer"><td><br />Generated by <a href="http://sourceforge.net/p/retext/">ReText Webpages generator</a> from Markdown source</td></tr>
+</table>
+</body>
+</html>
